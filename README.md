@@ -18,8 +18,8 @@ Place the php file into a directory and you're done
 
 ## settings
 
-Currently there is 1 setting, which is called parentScopeLimit
+Currently there is 1 setting, which is called parentScopeLimit (standard set to true)
 
-If set to true, this prevents people from traversing upwards relative to ./
+If set to true, this prevents people from traversing upwards relative to ./ and see all the files in your domain.
 
 - Nathnolt
