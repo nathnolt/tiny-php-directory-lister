@@ -1,6 +1,9 @@
 <?php
 
+// settings
 $parentScopeLimit = true;
+
+
 
 // get the dir we want to analyse
 $curdir = "./";
@@ -15,9 +18,6 @@ if($parentScopeLimit && substr($curdir, 0, 5) == "./../") {
 	$curdir = "./";
 }
 
-
-
-
 // create breadcrumb bar
 $breadcrumbHTML = createBreadCrumbBar($curdir);
 
@@ -29,6 +29,8 @@ $dirContentHTML = generateContentsHTML($data);
 
 // combine breadcrumb and dirContent
 $totalHTML = $breadcrumbHTML . $dirContentHTML;
+
+
 
 
 function createBreadcrumbBar($path) {
