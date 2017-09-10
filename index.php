@@ -22,10 +22,10 @@ if($parentScopeLimit && substr($curdir, 0, 5) == "./../") {
 $breadcrumbHTML = createBreadCrumbBar($curdir);
 
 // get the contents
-$data = dirContents($curdir);
+$contents = dirContents($curdir);
 
 // show the contents visually
-$dirContentHTML = generateContentsHTML($data);
+$dirContentHTML = generateContentsHTML($contents, $curdir);
 
 // combine breadcrumb and dirContent
 $totalHTML = $breadcrumbHTML . $dirContentHTML;
@@ -85,26 +85,24 @@ function createBreadcrumbItemHTML($text, $url) {
 // grab the data we will use
 function dirContents($path) {
 	$arr = scandir($path);
-	$arr2 = [];
+	
+	// create an array with added isdir property
+	$contents = [];
 	foreach($arr as $name) {
 		$isdir = is_dir($path."/".$name);
-		$item = array("isdir"=>$isdir, "name"=>$name);
-		array_push($arr2, $item);
+		$item = [
+			"isdir" => $isdir, 
+			"name" => $name
+		];
+		array_push($contents, $item);
 	}
 	
-	$arr3 = [
-		"path" => $path,
-		"contents" => $arr2
-	];
-	
-	return $arr3;
+	return $contents;
 }
 
-// generates content html
-function generateContentsHTML($data) {
+// generates content HTML
+function generateContentsHTML($contents, $path) {
 	$HTMLStr = "";
-	$contents = $data["contents"];
-	$path = $data["path"];
 	
 	foreach($contents as $item) {
 		$itemHTMLString = generateItemHTML($path, $item);
@@ -116,8 +114,7 @@ function generateContentsHTML($data) {
 
 // generates html for 1 item
 function generateItemHTML($path, $item) {
-	$itemHTMLString = "";
-	$itemHTMLString .= '<div>';
+	$itemHTMLString = '<div>';
 	$wholePath = $path .= $item["name"];
 	
 	$linkArr = createLinkHTML($wholePath, $item["isdir"]);
@@ -153,24 +150,23 @@ function createLinkHTML($path, $dir) {
 
 // generates an icon
 function generateIcon($dir) {
-	$class = "";
 	if($dir) {
-		$class .= "d";
+		$class = "d";
 	} else {
-		$class .= "f";
+		$class = "f";
 	}
 	
 	$iconStr = '<i class="'.$class.'"></i>';
 	return $iconStr;
 }
 
-// generates a name
+// generates the name string
 function generateName($name) {
 	$nameStr = $name;
 	return $nameStr;
 }
 
-
+// get the optimal relative path from the basepath to the current
 function getOptimalPath() {
 	$base = "./";
 	$cur = $_GET['dir'] . "/";
@@ -235,8 +231,7 @@ body,button{font-size:16px}body{margin:.5em;font-family:sans-serif}.c button,.c 
 </head>
 <body>
 <?php
-	// display contents
-	echo $totalHTML;
+	echo $totalHTML; // display contents
 ?>
 </body>
 </html>
