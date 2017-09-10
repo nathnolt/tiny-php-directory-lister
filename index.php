@@ -1,5 +1,7 @@
 <?php
 
+$parentScopeLimit = true;
+
 // get the dir we want to analyse
 $curdir = "./";
 if(isset($_GET['dir']) == true) {
@@ -7,6 +9,14 @@ if(isset($_GET['dir']) == true) {
 	// calculate the optimal relative dir from 2 absolute paths
 	$curdir = getOptimalPath();
 }
+
+// prevent parent scope
+if($parentScopeLimit && substr($curdir, 0, 5) == "./../") {
+	$curdir = "./";
+}
+
+
+
 
 // create breadcrumb bar
 $breadcrumbHTML = createBreadCrumbBar($curdir);
