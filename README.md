@@ -18,6 +18,6 @@ Place the php file into a directory and you're done
 
 ## my intent
 
-I intended it for use in localhost setting, where it doesn't matter if a client can see all the contents of your directories. So there are limits implemented.
+I intended it for use in localhost or simmilar setting, where it doesn't matter if a client can see all the contents of your directories and can move up beyond the project scope. That's why limits haven't been implemented yet.
 
 - Nathnolt
