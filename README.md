@@ -16,8 +16,10 @@ It's a tiny directory lister which looks like this:
 
 Place the php file into a directory and you're done
 
-## my intent
+## settings
 
-I intended it for use in localhost or simmilar setting, where it doesn't matter if a client can see all the contents of your directories and can move up beyond the project scope. That's why limits haven't been implemented yet.
+Currently there is 1 setting, which is called parentScopeLimit
+
+If set to true, this prevents people from traversing upwards relative to ./
 
 - Nathnolt
