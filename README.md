@@ -1,6 +1,8 @@
 # tiny PHP directory lister
 
-It's a tiny directory lister.
+It's a tiny directory lister which looks like this:
+
+![Image of the program](http://i.imgur.com/YAjpKwd.png)
 
 ## features
 - breadcrumb menu
@@ -17,7 +19,5 @@ Place the php file into a directory and you're done
 ## my intent
 
 I intended it for use in localhost setting, where it doesn't matter if a client can see all the contents of your directories. So there are limits implemented.
-
-![Image of the program](http://i.imgur.com/YAjpKwd.png)
 
 - Nathnolt
