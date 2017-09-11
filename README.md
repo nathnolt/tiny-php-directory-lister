@@ -1,10 +1,10 @@
-# tiny PHP directory lister
+# Tiny PHP directory lister
 
 It's a tiny directory lister which looks like this:
 
 ![Image of the program](http://i.imgur.com/YAjpKwd.png)
 
-## features
+## Features
 - breadcrumb menu
 - directory listing
 - icon to indicate whether the item is a directory or a file
@@ -12,11 +12,11 @@ It's a tiny directory lister which looks like this:
 - single PHP file
 - simple instalation
 
-## installation
+## Installation
 
 Place the php file into a directory and you're done
 
-## settings
+## Settings
 
 Currently there is 1 setting, which is called parentScopeLimit (standard set to true)
 
